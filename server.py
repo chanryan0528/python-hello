@@ -2,7 +2,6 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
 import os
-import urllib.request
 
 def stock_price(request):
     url = "http://hq.sinajs.cn/list=sh000001"
