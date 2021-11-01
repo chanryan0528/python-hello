@@ -7,7 +7,10 @@ import urllib.request
 
 def stock_price(request):
     url = "http://hq.sinajs.cn/list=sh000001"
-    message = url
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
+        the_page = response.read()
+    message = the_page
     return Response(message)
 
 def hello_world(request):
