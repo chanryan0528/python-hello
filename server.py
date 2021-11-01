@@ -2,9 +2,11 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
 import os
+import json
+import urllib.request
 
 def hello_world(request):
-    name = os.environ.get('NAME')
+    url = "http://hq.sinajs.cn/list=sh000001"
     if name == None or len(name) == 0:
         name = "world"
     message = "Hello, " + name + "!\n"
