@@ -5,9 +5,7 @@ import os
 
 def stock_price(request):
     url = "http://hq.sinajs.cn/list=sh000001"
-    if name == None or len(name) == 0:
-        name = "world"
-    message = "Hello, " + name + "!\n"
+    message = url
     return Response(message)
 
 def hello_world(request):
