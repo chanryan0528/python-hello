@@ -4,13 +4,15 @@ from pyramid.response import Response
 import os
 import json
 import urllib.request
+import re
 
 def stock_price(request):
     url = "http://hq.sinajs.cn/list=sh000001"
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as response:
         the_page = response.read()
-    message = the_page
+    m = re.search('var hq_str_sh000001=(.+?);', the_page)
+    message = m.group(1)    
     return Response(message)
 
 def hello_world(request):
